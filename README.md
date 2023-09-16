@@ -1,27 +1,24 @@
-# React + TypeScript + Vite
+# Mondex
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Getting Valid Dex Data
 
-Currently, two official plugins are available:
+-   dex data comes from pokeAPI's JSONs
+-   for each Pokemon JSON, I parsed and loaded into it memory
+-   I transformed the complex pokemon record into a simple record with 5 fields
+-   I pushed the 151 records into an array and saved it to JSON
+-   I specified the Pokemon type
+-   I transfromed the JSON into TS sourcecode
+-   I declared the array as an array of Pokemon
+-   The service language checked that each record conforms to the type
+-   Conclusion: I have a TS array of 151 records with valid data
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Setting the UI for Pokemon data
 
-## Expanding the ESLint configuration
+-   display the sprite with an image of a specific size
+-   display the number with some monospace font
+-   display the stats with a simple graph or bars
+-   display the types through one or two images
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Overall layout and pages
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+-   a single page for now
