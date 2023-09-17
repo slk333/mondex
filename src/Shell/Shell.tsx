@@ -9,7 +9,7 @@ export function Shell(props: { children: ReactNode }) {
     return (
         <AppShell
             header={{ height: 60 }}
-            navbar={{ width: 300, breakpoint: "sm", collapsed: { mobile: !opened } }}
+            navbar={{ width: 200, breakpoint: "sm", collapsed: { mobile: !opened } }}
             padding="md"
         >
             <AppShell.Header>
@@ -19,7 +19,7 @@ export function Shell(props: { children: ReactNode }) {
                 </Flex>
             </AppShell.Header>
 
-            <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
+            <AppShell.Navbar p="md"></AppShell.Navbar>
 
             <AppShell.Main>{props.children}</AppShell.Main>
         </AppShell>

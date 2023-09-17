@@ -1,34 +1,55 @@
-import { Flex, Space } from "@mantine/core"
+import { Flex } from "@mantine/core"
 import { pokemons } from "./data/pokemons.ts"
+import { Pokemon } from "./Types/Pokemon.ts"
 
 export default function View() {
+    return <PokemonCollectionView></PokemonCollectionView>
+}
+
+function PokemonCollectionView() {
     return (
-        <div>
-            <Flex direction="column" gap={30}>
-                {pokemons.map(pokemon => (
-                    <Flex key={pokemon.id} gap={10} align={"center"}>
-                        <div style={{ fontFamily: "monospace" }}>{pokemon.id}</div>
-                        <img src={pokemon.spriteURL} width={96}></img>
-                        <Flex direction={"column"}>
-                            <meter style={{ width: "300px" }} min={0} max={150} value={pokemon.stats[0]}></meter>
-                            <meter style={{ width: "300px" }} min={0} max={150} value={pokemon.stats[1]}></meter>
-                            <meter style={{ width: "300px" }} min={0} max={150} value={pokemon.stats[2]}></meter>
-                            <meter style={{ width: "300px" }} min={0} max={150} value={pokemon.stats[3]}></meter>
-                            <meter style={{ width: "300px" }} min={0} max={150} value={pokemon.stats[4]}></meter>
-                            <meter
-                                style={{ width: "300px", backgroundColor: "#777" }}
-                                min={0}
-                                max={750}
-                                value={pokemon.stats.reduce((a, b) => a + b)}
-                            ></meter>
-                            {/*   {pokemon.types.map(type => (
-                            <span>{type}</span>
-                        ))} */}
-                        </Flex>
-                        <div>{pokemon.name}</div>
-                    </Flex>
-                ))}
-            </Flex>
-        </div>
+        <Flex ml={32} direction="column" gap={30}>
+            {pokemons.map(pokemon => (
+                <PokemonView key={pokemon.id} pokemon={pokemon} />
+            ))}
+        </Flex>
+    )
+}
+
+function PokemonView(props: { pokemon: Pokemon }) {
+    const pokemon = props.pokemon
+
+    return (
+        <Flex key={pokemon.id} gap={32} align={"center"}>
+            <div style={{ fontFamily: "monospace" }}>{pokemon.id}</div>
+            <img src={pokemon.spriteURL} width={96} height={96}></img>
+            <PokemonTypeGraphView types={pokemon.types} />
+            <StatsGraphView stats={pokemon.stats}></StatsGraphView>
+            <div>{pokemon.name}</div>
+        </Flex>
+    )
+}
+
+function StatsGraphView(props: { stats: Pokemon["stats"] }) {
+    const stats = props.stats
+
+    return (
+        <Flex direction={"column"}>
+            {stats.map((stat, i) => (
+                <meter key={i} style={{ width: "300px" }} min={0} max={150} value={stat}></meter>
+            ))}
+        </Flex>
+    )
+}
+
+function PokemonTypeGraphView(props: { types: Pokemon["types"] }) {
+    const types = props.types
+
+    return (
+        <Flex direction={"column"}>
+            {types.map((type, i) => (
+                <img key={i} width={48} src={`/type-image/${type}.png`} />
+            ))}
+        </Flex>
     )
 }

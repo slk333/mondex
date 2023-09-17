@@ -1,12 +1,7 @@
-type Pokemon = {
-    name: string
-    id: number
-    spriteURL: string
-    types: string[]
-    stats: number[]
-}
+import { Pokemon } from "../Types/Pokemon"
 
-const baseURL: string = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/yellow/transparent/"
+const baseURL: string =
+    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-i/yellow/transparent/"
 
 export const pokemons: Pokemon[] = [
     {
@@ -251,14 +246,14 @@ export const pokemons: Pokemon[] = [
         name: "clefairy",
         id: 35,
         spriteURL: baseURL + "35.png",
-        types: ["fairy"],
+        types: ["normal"],
         stats: [70, 45, 48, 60, 35],
     },
     {
         name: "clefable",
         id: 36,
         spriteURL: baseURL + "36.png",
-        types: ["fairy"],
+        types: ["normal"],
         stats: [95, 70, 73, 95, 60],
     },
     {
@@ -279,14 +274,14 @@ export const pokemons: Pokemon[] = [
         name: "jigglypuff",
         id: 39,
         spriteURL: baseURL + "39.png",
-        types: ["normal", "fairy"],
+        types: ["normal"],
         stats: [115, 45, 20, 45, 20],
     },
     {
         name: "wigglytuff",
         id: 40,
         spriteURL: baseURL + "40.png",
-        types: ["normal", "fairy"],
+        types: ["normal"],
         stats: [140, 70, 45, 85, 45],
     },
     {
@@ -860,7 +855,7 @@ export const pokemons: Pokemon[] = [
         name: "mr-mime",
         id: 122,
         spriteURL: baseURL + "122.png",
-        types: ["psychic", "fairy"],
+        types: ["psychic"],
         stats: [40, 45, 65, 100, 90],
     },
     {

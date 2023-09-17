@@ -5,7 +5,7 @@ import { Shell } from "./Shell/Shell"
 
 export default function App() {
     return (
-        <MantineProvider defaultColorScheme="dark">
+        <MantineProvider defaultColorScheme="auto">
             <Shell>
                 <View></View>
             </Shell>
