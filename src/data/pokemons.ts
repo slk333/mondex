@@ -568,14 +568,14 @@ export const pokemons: Pokemon[] = [
         name: "magnemite",
         id: 81,
         spriteURL: baseURL + "81.png",
-        types: ["electric", "steel"],
+        types: ["electric"],
         stats: [25, 35, 70, 95, 45],
     },
     {
         name: "magneton",
         id: 82,
         spriteURL: baseURL + "82.png",
-        types: ["electric", "steel"],
+        types: ["electric"],
         stats: [50, 60, 95, 120, 70],
     },
     {
