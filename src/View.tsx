@@ -53,7 +53,7 @@ function TypeStackView(props: { types: Pokemon["types"] }) {
     return (
         <Flex direction={"column"}>
             {types.map((type, i) => (
-                <img key={i} width={48} src={`/type-image/${type}.png`} />
+                <img key={i} width={48} height={16.4} src={`/type-image/${type}.png`} />
             ))}
         </Flex>
     )
