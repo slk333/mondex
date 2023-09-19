@@ -2,6 +2,7 @@ import { Flex } from "@mantine/core"
 import { pokemons } from "./data/pokemons.ts"
 import { Pokemon } from "./Types/Pokemon.ts"
 import { computeRecommendedTypesArray } from "./logic/computeRecommendedTypes.ts"
+import { computeDefiningStat } from "./logic/computeDefiningStat.ts"
 
 export default function View() {
     return <PokemonCollectionView></PokemonCollectionView>
@@ -24,10 +25,14 @@ function PokemonView(props: { pokemon: Pokemon }) {
     return (
         <Flex key={pokemon.id} gap={32} align={"center"}>
             <div style={{ fontFamily: "monospace" }}>{pokemon.id}</div>
-            <img src={pokemon.spriteURL} width={96} height={96}></img>
+            <Flex align={"center"} direction={"column"}>
+                <img src={pokemon.spriteURL} width={96} height={96} />
+                <div>{pokemon.name}</div>
+            </Flex>
+
             <TypeStackView types={pokemon.types} />
             <StatsGraphView stats={pokemon.stats}></StatsGraphView>
-            <div>{pokemon.name}</div>
+
             {recommendedTypesArrays.map((recommendedTypes, i) => (
                 <TypeStackView key={i} types={recommendedTypes} />
             ))}
@@ -40,6 +45,7 @@ function StatsGraphView(props: { stats: Pokemon["stats"] }) {
 
     return (
         <Flex direction={"column"}>
+            <div>{computeDefiningStat(stats)}</div>
             {stats.map((stat, i) => (
                 <meter key={i} style={{ width: "300px" }} min={0} max={150} value={stat}></meter>
             ))}
