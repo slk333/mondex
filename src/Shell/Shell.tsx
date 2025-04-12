@@ -13,13 +13,13 @@ export function Shell(props: { children: ReactNode }) {
             padding="md"
         >
             <AppShell.Header>
-                <Flex ml={20} gap={10} h={"100%"} align="center">
+                <Flex ml={20} gap={10} h="100%" align="center">
                     <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
                     <Logo />
                 </Flex>
             </AppShell.Header>
 
-            <AppShell.Navbar p="md"></AppShell.Navbar>
+            <AppShell.Navbar p="md" />
 
             <AppShell.Main>{props.children}</AppShell.Main>
         </AppShell>

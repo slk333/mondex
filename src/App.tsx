@@ -7,7 +7,7 @@ export default function App() {
     return (
         <MantineProvider defaultColorScheme="auto">
             <Shell>
-                <View></View>
+                <View />
             </Shell>
         </MantineProvider>
     )
