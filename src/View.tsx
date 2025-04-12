@@ -44,11 +44,11 @@ function StatsGraphView(props: { stats: Pokemon["stats"] }) {
     const stats = props.stats
 
     const statColors = [
-        "#5D9B78", // HP (Pastel Forest Green)
-        "#C25B52", // Attack (Pastel Crimson)
-        "#7D8C9A", // Defense (Pastel Slate Gray)
-        "#9A7AA0", // Special (Pastel Purple)
-        "#B89D4D", // Speed (Pastel Gold)
+        "linear-gradient(to right, #3A7A57, #5D9B78, #8FC3A9)", // HP (Forest Green gradient)
+        "linear-gradient(to right, #A03C34, #C25B52, #E68A82)", // Attack (Crimson gradient)
+        "linear-gradient(to right, #5E6B78, #7D8C9A, #A6B5C3)", // Defense (Slate Gray gradient)
+        "linear-gradient(to right, #7A5980, #9A7AA0, #BEA5C3)", // Special (Purple gradient)
+        "linear-gradient(to right, #96802F, #B89D4D, #D9C27A)", // Speed (Gold gradient)
     ]
     const mean = Math.round(stats.reduce((sum, val) => sum + val, 0) / stats.length)
 
@@ -56,14 +56,24 @@ function StatsGraphView(props: { stats: Pokemon["stats"] }) {
         <Flex direction="column">
             <div>{computeDefiningStat(stats)}</div>
             <Progress.Root ff="monospace" mb={4} size="xl" w={300}>
-                <Progress.Section color="#111" value={(mean * 100) / 150}>
+                <Progress.Section
+                    styles={{
+                        section: { background: "#1a1a1a" },
+                    }}
+                    value={(mean * 100) / 118}
+                >
                     <Progress.Label>{mean}</Progress.Label>
                 </Progress.Section>
             </Progress.Root>
 
             {stats.map((stat, i) => (
                 <Progress.Root ff="monospace" mb={4} size="xl" w={300} key={i}>
-                    <Progress.Section color={statColors[i]} value={(stat * 100) / 150}>
+                    <Progress.Section
+                        styles={{
+                            section: { background: statColors[i] },
+                        }}
+                        value={(stat * 100) / 150}
+                    >
                         <Progress.Label>{stat}</Progress.Label>
                     </Progress.Section>
                 </Progress.Root>
