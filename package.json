@@ -8,7 +8,8 @@
         "build": "tsc && vite build",
         "preview": "vite preview",
         "lint": "npm run eslint",
-        "eslint": "eslint . --cache"
+        "eslint": "eslint . --cache",
+        "deploy": "npm run build && surge dist --domain mondex.surge.sh"
     },
     "dependencies": {
         "@mantine/core": "7.17.4",
